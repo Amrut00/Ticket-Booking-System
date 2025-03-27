@@ -9,9 +9,12 @@ const EventForm = () => {
     ticketClass: 'general'
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Event Booking Data:', formData);
+    const response=await fetch("http://load-1-57848923.ap-south-1.elb.amazonaws.com");
+     const handled= await response.json();
+    console.log(handled);
   };
 
   return (

@@ -9,9 +9,12 @@ const SportsForm = () => {
     seating: 'standard'
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Sports Booking Data:', formData);
+    const response=await fetch("http://amrut-1601014251.ap-south-1.elb.amazonaws.com/");
+     const handled= await response.json();
+    console.log(handled);
   };
 
   return (

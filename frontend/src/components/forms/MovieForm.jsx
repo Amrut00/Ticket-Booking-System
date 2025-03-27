@@ -9,9 +9,12 @@ const MovieForm = () => {
     ticketType: 'standard'
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Movie Booking Data:', formData);
+    const response=await fetch("http://load-balancer-1-1967566059.ap-south-1.elb.amazonaws.com/");
+     const handled= await response.json();
+    console.log(handled);
   };
 
   return (
