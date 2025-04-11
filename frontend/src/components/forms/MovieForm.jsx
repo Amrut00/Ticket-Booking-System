@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import './Form.css';
+import { useContext } from 'react';
+import { LoadBalancerContext } from '../LiveUsers';
 
 const MovieForm = () => {
+
+  const lbContext = useContext(LoadBalancerContext);
+    const movieLbUrl = lbContext.movies;
   const [formData, setFormData] = useState({
     movie: '',
     showTime: '',
@@ -9,10 +14,11 @@ const MovieForm = () => {
     ticketType: 'standard'
   });
 
+  console.log(movieLbUrl)
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Movie Booking Data:', formData);
-    const response=await fetch("http://load-balancer-1-1967566059.ap-south-1.elb.amazonaws.com/");
+    const response=await fetch(movieLbUrl);
      const handled= await response.json();
     console.log(handled);
   };

@@ -1,18 +1,24 @@
 import React, { useState } from 'react';
 import './Form.css';
+import { useContext } from 'react';
+import { LoadBalancerContext } from '../LiveUsers';
 
 const EventForm = () => {
+
+  const lbContext = useContext(LoadBalancerContext);
+  const eventLbUrl = lbContext.events;
   const [formData, setFormData] = useState({
     eventType: 'concert',
     eventDate: '',
     guests: 1,
     ticketClass: 'general'
   });
+  console.log(eventLbUrl)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Event Booking Data:', formData);
-    const response=await fetch("http://load-1-57848923.ap-south-1.elb.amazonaws.com");
+    const response=await fetch(eventLbUrl);
      const handled= await response.json();
     console.log(handled);
   };

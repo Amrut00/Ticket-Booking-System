@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import './Form.css';
-
+import { LoadBalancerContext } from '../LiveUsers';
+import { useContext } from 'react';
 const SportsForm = () => {
+  const lbContext = useContext(LoadBalancerContext);
+  const sportLbUrl = lbContext.sports;
+  
   const [formData, setFormData] = useState({
     sport: 'football',
     matchDate: '',
@@ -9,10 +13,13 @@ const SportsForm = () => {
     seating: 'standard'
   });
 
+  console.log(sportLbUrl);
+ 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Sports Booking Data:', formData);
-    const response=await fetch("http://amrut-1601014251.ap-south-1.elb.amazonaws.com/");
+    const response=await fetch(sportLbUrl);
      const handled= await response.json();
     console.log(handled);
   };

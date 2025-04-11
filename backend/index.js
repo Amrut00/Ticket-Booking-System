@@ -58,6 +58,7 @@ io.on('connection', (socket) => {
 });
 
 const PORT = 4000;
+
 httpServer.listen(PORT, () => {
   console.log(`Live users service running on port ${PORT}`);
 });

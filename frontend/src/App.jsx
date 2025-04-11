@@ -4,14 +4,24 @@ import MoviesBooking from './pages/MoviesBooking';
 import EventsBooking from './pages/EventsBooking';
 import SportsBooking from './pages/SportsBooking';
 import LiveUsers from './components/LiveUsers';
+import { LoadBalancerContext } from './components/LiveUsers';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+
+  const [lbUrls, setLbUrls] = useState({
+    movie: 'http://load-balancer-amrut-1189107151.ap-south-1.elb.amazonaws.com',
+    event_load: 'http://load-balancer-amrut-1189107151.ap-south-1.elb.amazonaws.com',
+    sport: 'http://load-balancer-amrut-1189107151.ap-south-1.elb.amazonaws.com'
+  });
+
   return (
+    <LoadBalancerContext.Provider value={lbUrls}>
     <Router>
       <div className="App">
         <Navbar />
-        <LiveUsers />
+        <LiveUsers  lbUrls={lbUrls} setLbUrls={setLbUrls} />
         <Routes>
           <Route path="/movies" element={<MoviesBooking />} />
           <Route path="/events" element={<EventsBooking />} />
@@ -20,6 +30,7 @@ function App() {
         </Routes>
       </div>
     </Router>
+    </LoadBalancerContext.Provider >
   );
 }
 
