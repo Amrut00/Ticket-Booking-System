@@ -8,7 +8,7 @@ export const LoadBalancerContext = React.createContext();
 
 const LiveUsers = ({ lbUrls, setLbUrls }) => {
   const location = useLocation();
-  const [counts, setCounts] = useState({ movies: 0, events: 0, sports: 0 });
+  const [counts, setCounts] = useState({ railway: 0, netflix: 0, zomato: 0 });
 
   // Function to get LB URL from backend
   const getLoadBalancerUrl = async (service, count) => {
@@ -39,7 +39,7 @@ const LiveUsers = ({ lbUrls, setLbUrls }) => {
 
   // Socket.io setup
   useEffect(() => {
-    const currentPage = location.pathname.split('/')[1] || 'movies';
+    const currentPage = location.pathname.split('/')[1] || 'railway';
     
     socket.on('pageCounts', (newCounts) => {
       setCounts(newCounts);
@@ -53,7 +53,7 @@ const LiveUsers = ({ lbUrls, setLbUrls }) => {
     };
   }, [location.pathname]);
 
-  const currentPage = location.pathname.split('/')[1] || 'movies';
+  const currentPage = location.pathname.split('/')[1] || 'railway';
   const currentCount = counts[currentPage] || 0;
 
   return (

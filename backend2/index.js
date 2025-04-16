@@ -9,9 +9,9 @@ app.use(express.json());
 
 // Load balancer mapping
 const loadBalancers = [
-    { threshold: 2, url: "http://load-balancer-amrut-1189107151.ap-south-1.elb.amazonaws.com" },
-    { threshold: 5, url: "http://loadbalancer-1-1768123365.ap-south-1.elb.amazonaws.com" },
-    { threshold: Infinity, url: "http://lb3.example.com" }
+    { threshold: 2, url: "http://loadbalancer-1-1975732822.ap-south-1.elb.amazonaws.com" },
+    { threshold: 5, url: "http://loadbalancer-2-970733594.ap-south-1.elb.amazonaws.com" },
+    { threshold: Infinity, url: "http://loadbalancer-1-1975732822.ap-south-1.elb.amazonaws.com" }
 ];
 
 app.get('/', (req, res) => {

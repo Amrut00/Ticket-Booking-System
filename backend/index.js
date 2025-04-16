@@ -20,9 +20,9 @@ const io = new Server(httpServer, {
 
 // Store active users per page
 const pageCounts = {
-  movies: 0,
-  events: 0,
-  sports: 0
+  railway: 0,
+  netflix: 0,
+  zomato: 0
 };
 
 // Store socket-page mappings
