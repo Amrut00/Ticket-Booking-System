@@ -1,4 +1,4 @@
-# Multi-Service Dashboard with Dynamic Load Balancing
+# Multi-Service Dashboard with Dynamic Load Balancing using AWS
 
 A dynamic dashboard system that automatically balances user load across multiple AWS EC2 instances based on real-time traffic.  
 The system tracks live users on each service page and dynamically switches instances when thresholds are exceeded.
