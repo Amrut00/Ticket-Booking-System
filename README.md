@@ -33,10 +33,4 @@ The system tracks live users on each service page and dynamically switches insta
 
 - AWS EC2 (Multiple instances)
 - AWS Load Balancer (ALB)
-📜 License
-Distributed under the MIT License. See LICENSE for more information.
 
-📧 Contact
-Your Name - @your_twitter_handle - your.email@example.com
-
-Project Link: https://github.com/yourusername/your-repo
